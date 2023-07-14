@@ -10,9 +10,31 @@ export const InfoCardContainer = styled.div`
 `;
 export const InfoCardLi = styled.li`
 width: 100%;
-
-
 `
+export const LiSpan = styled.span`
+font-weight: bold;
+color: black;
+
+font-size: 25px;
+`
+
+export const LiSpanGreen = styled.span`
+font-weight: bold;
+color: green;
+font-size: 25px;
+`
+export const LiSpanBlue = styled.span`
+font-weight: bold;
+color: blue;
+font-size: 25px;
+`
+export const LiSpanRed = styled.span`
+font-weight: bold;
+color: red;
+font-size: 25px;
+`
+
+
 
 
 export const Container = styled.div`

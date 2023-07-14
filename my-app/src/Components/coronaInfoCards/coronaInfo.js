@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi } from "../styleComponents/index.style";
+import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi, LiSpan, LiSpanGreen, LiSpanBlue, LiSpanRed } from "../styleComponents/index.style";
 
 const CoronaInfoFunc = () => {
   const options = {
@@ -41,23 +41,23 @@ const CoronaInfoFunc = () => {
     <InfoCardContainer>
     <InfoCardsUl>
     <InfoCardLi>
-    <Container>
-    {data.response[0].cases.active}
+    <Container> <span>Recovered:</span>
+    <LiSpanGreen>{data.response[0].cases.recovered}</LiSpanGreen>
  </Container>
  </InfoCardLi>
   <InfoCardLi>
-    <Container>
-    {data.response[0].cases.active}
+    <Container> <span>ActiveCases:</span>
+    <LiSpanBlue>{data.response[0].cases.active}</LiSpanBlue>
  </Container>
  </InfoCardLi>
  <InfoCardLi>
-    <Container>
-    {data.response[0].cases.active}
+    <Container> <span>Deaths:</span>
+    <LiSpanRed>{data.response[0].deaths.total}</LiSpanRed>
  </Container>
  </InfoCardLi>
   <InfoCardLi>
     <Container>
-    {data.response[0].cases.active}
+   <LiSpan>Country Stats</LiSpan>
  </Container>
  </InfoCardLi> 
  </InfoCardsUl> 
