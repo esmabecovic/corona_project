@@ -1,11 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import {
-  Container,
-  InfoCardsUl,
-  InfoCardContainer,
-} from "../styleComponents/index.style";
+import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi } from "../styleComponents/index.style";
 
 const CoronaInfoFunc = () => {
   const options = {
@@ -43,21 +39,31 @@ const CoronaInfoFunc = () => {
   }
   return (
     <InfoCardContainer>
-      <InfoCardsUl>
-        <li>
-          <Container>{data.response[0].cases.active}</Container>
-        </li>
-        <li>
-          <Container>{data.response[0].cases.active}</Container>
-        </li>
-        <li>
-          <Container>{data.response[0].cases.active}</Container>
-        </li>
-        <li>
-          <Container>{data.response[0].cases.active}</Container>
-        </li>
-      </InfoCardsUl>
-    </InfoCardContainer>
+    <InfoCardsUl>
+    <InfoCardLi>
+    <Container>
+    {data.response[0].cases.active}
+ </Container>
+ </InfoCardLi>
+  <InfoCardLi>
+    <Container>
+    {data.response[0].cases.active}
+ </Container>
+ </InfoCardLi>
+ <InfoCardLi>
+    <Container>
+    {data.response[0].cases.active}
+ </Container>
+ </InfoCardLi>
+  <InfoCardLi>
+    <Container>
+    {data.response[0].cases.active}
+ </Container>
+ </InfoCardLi> 
+ </InfoCardsUl> 
+ </InfoCardContainer>
+   
+   
   );
 };
 export default CoronaInfoFunc;
