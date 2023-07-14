@@ -8,7 +8,11 @@ export const InfoCardContainer = styled.div`
     width: 100%;
     height: 40vh;
 `;
-export const InfoCardLi = styled.li``
+export const InfoCardLi = styled.li`
+width: 100%;
+
+
+`
 
 
 export const Container = styled.div`
@@ -20,11 +24,13 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 40%;
+    width: 100%;
     height: 20vh;
 `;
 export const InfoCardsUl = styled.ul`
 gap: 2.5rem;
+width: 80%;
+padding: 0px 20px;
 display: flex;
 list-style-type: none;
 `

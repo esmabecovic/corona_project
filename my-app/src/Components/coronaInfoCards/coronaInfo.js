@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Container, InfoCardsUl, InfoCardContainer } from "../styleComponents/index.style";
+import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi } from "../styleComponents/index.style";
 
 const CoronaInfoFunc = () => {
   const options = {
@@ -40,26 +40,26 @@ const CoronaInfoFunc = () => {
   return (
     <InfoCardContainer>
     <InfoCardsUl>
-        <li>
+    <InfoCardLi>
     <Container>
     {data.response[0].cases.active}
  </Container>
- </li>
- <li>
+ </InfoCardLi>
+  <InfoCardLi>
     <Container>
     {data.response[0].cases.active}
  </Container>
- </li>
- <li>
+ </InfoCardLi>
+ <InfoCardLi>
     <Container>
     {data.response[0].cases.active}
  </Container>
- </li>
- <li>
+ </InfoCardLi>
+  <InfoCardLi>
     <Container>
     {data.response[0].cases.active}
  </Container>
- </li>
+ </InfoCardLi> 
  </InfoCardsUl> 
  </InfoCardContainer>
    
