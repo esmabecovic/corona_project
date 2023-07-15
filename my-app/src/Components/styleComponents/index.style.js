@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const InfoCardContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -33,12 +34,47 @@ font-weight: bold;
 color: red;
 font-size: 25px;
 `
+export const MainHomePageDiv = styled.div`
+width: 100%;
+height: 100vh;
+display: flex;
+flex-direction: column;
+`
+
+export const CovidStatsMain = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+flex-direction: column;
 
 
+`
+export const CovidStatsCard = styled.div`
+width: 70%;
+height: 23vh;
+margin-top: 30px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 15px 40px;
+border: solid black 0.8px;
+border-radius: 5px;
+`
+export const CovidInfoPart = styled.div`
+display: flex;
+flex-direction: column;
+align-items: start;
+justify-content: start;
+height: 100%;
+width: 60%;
+
+
+`
 
 
 export const Container = styled.div`
-    background-color: white;
     background-color: white;
     border: solid black 0.8px;
     border-radius: 7px;

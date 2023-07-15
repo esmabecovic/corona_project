@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi, LiSpan, LiSpanGreen, LiSpanBlue, LiSpanRed } from "../styleComponents/index.style";
+import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi, LiSpan, LiSpanGreen, LiSpanBlue, LiSpanRed, MainHomePageDiv } from "../Components/styleComponents/index.style";
 
 const CoronaInfoFunc = () => {
   const options = {
@@ -38,6 +38,8 @@ const CoronaInfoFunc = () => {
     return <div>Error: {error.message}</div>;
   }
   return (
+    <MainHomePageDiv>
+    <img src='https://www.universewithme.com/wp-content/uploads/2015/06/EU_visa_countries.svg_.png' className='targets'/>
     <InfoCardContainer>
     <InfoCardsUl>
     <InfoCardLi>
@@ -62,8 +64,7 @@ const CoronaInfoFunc = () => {
  </InfoCardLi> 
  </InfoCardsUl> 
  </InfoCardContainer>
-   
-   
+   </MainHomePageDiv>
   );
 };
 export default CoronaInfoFunc;
