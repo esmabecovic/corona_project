@@ -12,6 +12,10 @@
     margin-top: 8px;
     font-weight: 500;
 }
+.countryFlagImage{
+    width: 100%;
+    height: 100%;
+}
 
 .countryContinent{
     word-spacing: 10px;

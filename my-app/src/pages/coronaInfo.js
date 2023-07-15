@@ -3,7 +3,8 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi, LiSpan, LiSpanGreen, LiSpanBlue, LiSpanRed, MainHomePageDiv } from "../Components/styleComponents/index.style";
 
-const CoronaInfoFunc = () => {
+
+const CoronaInfoFunc = () => { 
   const options = {
     method: "GET",
     url: "https://covid-193.p.rapidapi.com/statistics?country=all",
@@ -37,6 +38,11 @@ const CoronaInfoFunc = () => {
   if (isError) {
     return <div>Error: {error.message}</div>;
   }
+
+
+
+ 
+
   return (
     <MainHomePageDiv>
     <img src='https://www.universewithme.com/wp-content/uploads/2015/06/EU_visa_countries.svg_.png' className='targets'/>
@@ -58,9 +64,11 @@ const CoronaInfoFunc = () => {
  </Container>
  </InfoCardLi>
   <InfoCardLi>
+    <a style={{textDecoration: 'none'}} href="http://localhost:3000/covid_stats">
     <Container>
-   <LiSpan>Country Stats</LiSpan>
+   <LiSpan >Country Stats</LiSpan>
  </Container>
+ </a>
  </InfoCardLi> 
  </InfoCardsUl> 
  </InfoCardContainer>

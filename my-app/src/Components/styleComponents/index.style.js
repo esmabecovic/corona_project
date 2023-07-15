@@ -47,9 +47,23 @@ height: 100%;
 display: flex;
 align-items: center;
 flex-direction: column;
-
-
 `
+export const CovidFlagCard = styled.div`
+display: flex;
+flex-direction: column;
+align-items: start;
+justify-content: start;
+height: 120%;
+width: 40%;
+margin-right: -40px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+background-color: red;
+`
+
+
+
+
 export const CovidStatsCard = styled.div`
 width: 70%;
 height: 23vh;

@@ -1,8 +1,14 @@
 import React from "react";
 import axios from "axios";
-import './covid_stats.css'
+import "./covid_stats.css";
 import { useQuery } from "react-query";
-import { CovidInfoPart, CovidStatsCard, CovidStatsMain } from "../Components/styleComponents/index.style";
+import {
+  CovidFlagCard,
+  CovidInfoPart,
+  CovidStatsCard,
+  CovidStatsMain,
+} from "../Components/styleComponents/index.style";
+
 const CovidStats = () => {
   const options = {
     method: "GET",
@@ -28,8 +34,6 @@ const CovidStats = () => {
     fetchCoronaData
   );
 
-  console.log(data);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -37,30 +41,48 @@ const CovidStats = () => {
   if (isError) {
     return <div>Error: {error.message}</div>;
   }
+
+  const countries = require("country-data").countries;
+  const arr = Object.keys(countries)
+  console.log(arr);
+  console.log(countries);
+  const filteredArr = arr.filter(el => el.length < 3)
+
+ const lowerArr = filteredArr.map((el) => {
+  return el.toLowerCase()
+ })
+  console.log(lowerArr);
+
+
   return (
-  <CovidStatsMain>
-    {data.response.map((country) => (
-      
-     <CovidStatsCard>
-      <CovidInfoPart>   
-      <h1 className="countryContinent">Continent:  {country.continent}</h1>
-      <h1 className="countryName">Country:  {country.country}</h1>
-      <ul className="casesInfo">
-        <li>population: <span className="population">{country.population}</span></li>
-        <li>New Cases:<span className="newCases">{country.cases.new}</span>  </li>
-        <li>Deaths:<span className="deaths">{country.deaths.new}</span>  </li>
-        <li></li>
-      </ul>
-      </CovidInfoPart>
-   
-     </CovidStatsCard>
+    <CovidStatsMain>
+      {data.response.map((country) => (
+        <CovidStatsCard>
+          <CovidInfoPart>
+            <h1 className="countryContinent">Continent: {country.continent}</h1>
+            <h1 className="countryName">Country: {country.country}</h1>
+            <ul className="casesInfo">
+              <li>
+                population:{""}
+                <span className="population">{country.population}</span>
+              </li>
+              <li>
+                New Cases:<span className="newCases">{country.cases.new}</span>{" "}
+              </li>
+              <li>
+                Deaths:<span className="deaths">{country.deaths.new}</span>{" "}
+              </li>
+              <li></li>
+            </ul>
+          </CovidInfoPart>
+          <CovidFlagCard>
+            <img src={`https://cdn.jsdelivr.net/npm/svg-country-flags@1.2.10/png250px/xx.png`}/>
         
-       
-    ))}
- </CovidStatsMain>
-
-
-  ) 
+          </CovidFlagCard>
+        </CovidStatsCard>
+      ))}
+    </CovidStatsMain>
+  );
 };
 
 export default CovidStats;
