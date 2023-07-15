@@ -58,7 +58,7 @@ width: 40%;
 margin-right: -40px;
 border-top-right-radius: 5px;
 border-bottom-right-radius: 5px;
-background-color: red;
+background-color: lightred;
 `
 
 
