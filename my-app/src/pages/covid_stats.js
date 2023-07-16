@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./covid_stats.css";
 import { useQuery } from "react-query";
@@ -54,9 +55,11 @@ const CovidStats = () => {
   console.log(lowerArr);
 
 
+
   return (
     <CovidStatsMain>
       {data.response.map((country) => (
+       
         <CovidStatsCard>
           <CovidInfoPart>
             <h1 className="countryContinent">Continent: {country.continent}</h1>
@@ -76,7 +79,7 @@ const CovidStats = () => {
             </ul>
           </CovidInfoPart>
           <CovidFlagCard>
-            <img src={`https://cdn.jsdelivr.net/npm/svg-country-flags@1.2.10/png250px/xx.png`}/>
+            <img src={`https://cdn.jsdelivr.net/npm/svg-country-flags@1.2.10/png250px/xk.png`}/>
         
           </CovidFlagCard>
         </CovidStatsCard>

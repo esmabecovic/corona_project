@@ -48,6 +48,21 @@ display: flex;
 align-items: center;
 flex-direction: column;
 `
+export const CountryStatsMain = styled.div`
+  /*  */
+`;
+ 
+export const CountryStatsCard = styled.div`
+  /*  */
+`;
+ 
+export const CountryInfoPart = styled.div`
+  /*  */
+`;
+ 
+export const CountryFlagCard = styled.div`
+  /*  */
+`;
 export const CovidFlagCard = styled.div`
 display: flex;
 flex-direction: column;
