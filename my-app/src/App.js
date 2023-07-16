@@ -7,8 +7,7 @@ import { Route, Routes } from 'react-router';
 import CovidStats from './pages/covid_stats';
 import AboutUs from './pages/about_us';
 import CountryStats from './pages/country_stats';
-// import { Icon } from '@rneui/themed';
-// import { AiFillFacebook } from 'react-icons/fa';
+import Footer from './Components/footer/footer';
 
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
       <Route path='/country_stats' element={<CountryStats/>} />
       <Route path='/about_us' element={<AboutUs/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
