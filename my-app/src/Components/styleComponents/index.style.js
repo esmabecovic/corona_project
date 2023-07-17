@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const InfoCardContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -13,26 +12,35 @@ export const InfoCardLi = styled.li`
 width: 100%;
 `
 export const LiSpan = styled.span`
-font-weight: bold;
-color: black;
-
+font-weight: 600;
+color: #2A282A;
 font-size: 25px;
+&:hover{
+  color: #6E7DAB
+}
 `
-
+export const StatsTitle = styled.h2`
+font-weight: 500;
+color: #DD5560;
+font-size: 35px;
+`
 export const LiSpanGreen = styled.span`
 font-weight: bold;
-color: green;
+color: #09BC8A;
 font-size: 25px;
+padding: 10px
 `
 export const LiSpanBlue = styled.span`
 font-weight: bold;
-color: blue;
+color: #4B57D2;
 font-size: 25px;
+padding: 10px
 `
 export const LiSpanRed = styled.span`
 font-weight: bold;
-color: red;
+color: #D73340;
 font-size: 25px;
+padding: 10px
 `
 export const MainHomePageDiv = styled.div`
 width: 100%;
@@ -101,18 +109,35 @@ width: 60%;
 
 
 `
-
-
-export const Container = styled.div`
+export const ContainerCountry = styled.div`
     background-color: white;
-    border: solid black 0.8px;
-    border-radius: 7px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 20vh;
+    transition: transform 1s ease;
+    &:hover{
+      transform: scale(1.1);
+    }
+`;
+
+export const Container = styled.div`
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+    transition: transform 1s ease;
+    cursor: context-menu;
+    &:hover{
+      transform: scale(1.1);
+    }
 `;
 export const InfoCardsUl = styled.ul`
 gap: 2.5rem;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi, LiSpan, LiSpanGreen, LiSpanBlue, LiSpanRed, MainHomePageDiv } from "../Components/styleComponents/index.style";
+import { Container, InfoCardsUl, InfoCardContainer, InfoCardLi, LiSpan, LiSpanGreen, LiSpanBlue, LiSpanRed, MainHomePageDiv, ContainerCountry, StatsTitle  } from "../Components/styleComponents/index.style";
 
 
 const CoronaInfoFunc = () => { 
@@ -47,28 +47,29 @@ const CoronaInfoFunc = () => {
   return (
     <MainHomePageDiv>
     <img src='https://www.universewithme.com/wp-content/uploads/2015/06/EU_visa_countries.svg_.png' className='targets'/>
+    <StatsTitle>World Stats</StatsTitle>
     <InfoCardContainer>
     <InfoCardsUl>
     <InfoCardLi>
-    <Container> <span>Recovered:</span>
+    <Container style={{borderTop:'none', borderLeft:'none', boxShadow: '-11px -9px 21px -6px rgba(0,0,0,0.1)',borderBottom:'0.5px solid grey', borderRight:'0.5px solid grey'}}> <span style={{fontWeight:'500', fontSize:'17.5px'}}>Recovered:</span>
     <LiSpanGreen>{data.response[0].cases.recovered}</LiSpanGreen>
  </Container>
  </InfoCardLi>
   <InfoCardLi>
-    <Container> <span>ActiveCases:</span>
+    <Container style={{borderTop:'none', borderLeft:'none', boxShadow: '-11px -9px 21px -6px rgba(0,0,0,0.1)', borderBottom:'0.5px solid grey',borderRight:'0.5px solid grey'}}> <span style={{fontWeight:'500', fontSize:'17.5px'}}>Active Cases:</span>
     <LiSpanBlue>{data.response[0].cases.active}</LiSpanBlue>
  </Container>
  </InfoCardLi>
  <InfoCardLi>
-    <Container> <span>Deaths:</span>
+    <Container style={{borderTop:'none', borderLeft:'none', boxShadow: '-11px -9px 21px -6px rgba(0,0,0,0.1)', borderBottom:'0.5px solid grey',borderRight:'0.5px solid grey'}}> <span style={{fontWeight:'500', fontSize:'17.5px'}}>Deaths:</span>
     <LiSpanRed>{data.response[0].deaths.total}</LiSpanRed>
  </Container>
  </InfoCardLi>
   <InfoCardLi>
     <a style={{textDecoration: 'none'}} href="http://localhost:3000/covid_stats">
-    <Container>
+    <ContainerCountry style={{borderTop:'none', borderLeft:'none', boxShadow: '-11px -9px 21px -6px rgba(0,0,0,0.1)', borderBottom:'0.5px solid grey',borderRight:'0.5px solid grey', cursor:'pointer'}}>
    <LiSpan >Country Stats</LiSpan>
- </Container>
+ </ContainerCountry>
  </a>
  </InfoCardLi> 
  </InfoCardsUl> 
