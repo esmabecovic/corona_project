@@ -1,8 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./covid_stats.css";
 import { useQuery } from "react-query";
+import Pagination from "@mui/material/Pagination";
+import ClipLoader from "react-spinners/ClipLoader";
+
+import Stack from "@mui/material/Stack";
 import {
   CovidFlagCard,
   CovidInfoPart,
@@ -11,6 +15,15 @@ import {
 } from "../Components/styleComponents/index.style";
 
 const CovidStats = () => {
+  const [covidStats, setCovidStats] = useState([]); 
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [activePage, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [postsPerPage] = useState(10);
+  const handleChange = (event, value) => {
+    setPage(value);
+    window.scrollTo(0, 0);
+  };
   const options = {
     method: "GET",
     url: "https://covid-193.p.rapidapi.com/statistics",
@@ -19,47 +32,37 @@ const CovidStats = () => {
       "X-RapidAPI-Host": "covid-193.p.rapidapi.com",
     },
   };
-  const fetchCoronaData = async () => {
-    try {
-      const response = await axios.request(options);
-      const data = response.data;
-      console.log(data);
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const { data, isLoading, isError, error } = useQuery(
-    "statistics",
-    fetchCoronaData
-  );
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+  const getDataCovidStats = () => {
+    setLoading(true);
+    axios.request(options).then(function (response) {
+      setCovidStats(response.data.response);
+      setLoading(false);
+    });
   }
 
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
+  const perPage = 12;
 
-  const countries = require("country-data").countries;
-  const arr = Object.keys(countries)
-  console.log(arr);
-  console.log(countries);
-  const filteredArr = arr.filter(el => el.length < 3)
+  const visitedPerPage = (activePage - 1) * perPage;
 
- const lowerArr = filteredArr.map((el) => {
-  return el.toLowerCase()
- })
-  console.log(lowerArr);
+  const totalPages = Math.ceil(covidStats.length / perPage);
 
-
-
+  useEffect(() => {
+    getDataCovidStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
   return (
-    <CovidStatsMain>
-      {data.response.map((country) => (
-       
+    <div className="mainDiv">
+    {loading ? (
+      <>
+        <ClipLoader color={"#ef6e6e"} size={45} />
+        <h1 className="text-lg text-red-900">
+          Loading data from covid-19 api.
+        </h1>
+      </>
+    ) : (
+      <>
+      {covidStats.map((country) => (  
         <CovidStatsCard>
           <CovidInfoPart>
             <h1 className="countryContinent">Continent: {country.continent}</h1>
@@ -79,12 +82,23 @@ const CovidStats = () => {
             </ul>
           </CovidInfoPart>
           <CovidFlagCard>
+            
             <img src={`https://cdn.jsdelivr.net/npm/svg-country-flags@1.2.10/png250px/xk.png`}/>
         
           </CovidFlagCard>
         </CovidStatsCard>
-      ))}
-    </CovidStatsMain>
+        ))
+        .slice(visitedPerPage, visitedPerPage + perPage)}
+       <Stack spacing={2}>
+        <Pagination
+          page={activePage}
+          count={totalPages}
+          onChange={handleChange}
+        ></Pagination>
+       </Stack>
+       </>
+       )}
+   </div>
   );
 };
 

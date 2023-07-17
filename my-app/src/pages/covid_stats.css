@@ -60,3 +60,9 @@ li span{
     font-size: 17px;
 text-align: center;
 }
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
