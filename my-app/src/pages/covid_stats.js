@@ -5,14 +5,16 @@ import "./covid_stats.css";
 import { useQuery } from "react-query";
 import Pagination from "@mui/material/Pagination";
 import ClipLoader from "react-spinners/ClipLoader";
+import { countries } from "./countriesStats";
+import CovidStatsCard from "../Components/covidStatsCard/covidStatsCard";
 
 import Stack from "@mui/material/Stack";
 import {
   CovidFlagCard,
   CovidInfoPart,
-  CovidStatsCard,
   CovidStatsMain,
 } from "../Components/styleComponents/index.style";
+import countriesStats from "./countriesStats";
 
 const CovidStats = () => {
   const [covidStats, setCovidStats] = useState([]); 
@@ -50,7 +52,7 @@ const CovidStats = () => {
     getDataCovidStats();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+  console.log(countries);
   return (
     <div className="mainDiv">
     {loading ? (
@@ -62,35 +64,26 @@ const CovidStats = () => {
       </>
     ) : (
       <>
-      {covidStats.map((country) => (  
-        <CovidStatsCard>
-          <CovidInfoPart>
-            <h1 className="countryContinent">Continent: {country.continent}</h1>
-            <h1 className="countryName">Country: {country.country}</h1>
-            <ul className="casesInfo">
-              <li>
-                population:{""}
-                <span className="population">{country.population}</span>
-              </li>
-              <li>
-                New Cases:<span className="newCases">{country.cases.new}</span>{" "}
-              </li>
-              <li>
-                Deaths:<span className="deaths">{country.deaths.new}</span>{" "}
-              </li>
-              <li></li>
-            </ul>
-          </CovidInfoPart>
-          <CovidFlagCard>
-            
-            <img src={`https://cdn.jsdelivr.net/npm/svg-country-flags@1.2.10/png250px/xk.png`}/>
+      {covidStats.map((el) => ( 
+        <CovidStatsCard
+        key={el.country}
+        continent={el.continent}
+        countryName={el.country}
+        population={el.population}
+        newCases={el.cases.new}
+        deaths={el.deaths.total}
+        countryImg={
+          countries.find((flag) => flag.searchName === el.country)
+            ? countries.find((flag) => flag.searchName === el.country).code.toLowerCase()
+            : "xx"
+        }
+      /> 
         
-          </CovidFlagCard>
-        </CovidStatsCard>
-        ))
+      ))
+
         .slice(visitedPerPage, visitedPerPage + perPage)}
        <Stack spacing={2}>
-        <Pagination
+        <Pagination className="pagination"
           page={activePage}
           count={totalPages}
           onChange={handleChange}

@@ -48,7 +48,9 @@ li span{
     padding: 5px;
     border-radius: 7px;
 }
-
+.pagination{
+    margin-top: 30px;
+}
 .casesInfo{
     display: flex;
     justify-content: start;

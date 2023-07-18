@@ -87,18 +87,7 @@ background-color: lightred;
 
 
 
-export const CovidStatsCard = styled.div`
-width: 70%;
-height: 23vh;
-margin-top: 30px;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 15px 40px;
-border: solid black 0.8px;
-border-radius: 5px;
-`
+
 export const CovidInfoPart = styled.div`
 display: flex;
 flex-direction: column;
