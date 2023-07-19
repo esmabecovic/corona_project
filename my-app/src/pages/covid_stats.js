@@ -2,23 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./covid_stats.css";
-import { useQuery } from "react-query";
 import Pagination from "@mui/material/Pagination";
 import ClipLoader from "react-spinners/ClipLoader";
 import { countries } from "./countriesStats";
 import CovidStatsCard from "../Components/covidStatsCard/covidStatsCard";
 
 import Stack from "@mui/material/Stack";
-import {
-  CovidFlagCard,
-  CovidInfoPart,
-  CovidStatsMain,
-} from "../Components/styleComponents/index.style";
-import countriesStats from "./countriesStats";
-
 const CovidStats = () => {
   const [covidStats, setCovidStats] = useState([]); 
-  const [blogPosts, setBlogPosts] = useState([]);
   const [activePage, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [postsPerPage] = useState(10);

@@ -42,12 +42,12 @@ export default function MaterialUIPickers({ dateFunc }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Stack spacing={3}>
-        <DesktopDatePicker className="datePicker"
+        <DesktopDatePicker
           label="Input Date"
           inputFormat="YYYY-MM-DD"
-          maxDate={onThisDay}
-          defaultValue={onThisDay}
-          value={value}
+          maxDate={dayjs(onThisDay)}
+          defaultValue={dayjs(onThisDay)}
+          value={dayjs(value)}
           onChange={handleChange}
           renderInput={(params) => (
             <TextField {...params} sx={{ backgroundColor: "white" }} />
