@@ -10,13 +10,13 @@ return(
     <div className="mainFooter">
     <div className="icons">
     <a href="https://www.facebook.com/coronavirus_info/" className="icon">
-        <FaFacebookF style={{padding: '0 10px', color:'#6E7DAB'}}/>
+        <FaFacebookF className="footerIcon"/>
     </a>
     <a href="https://www.instagram.com/preventcovid19/" className="icon">
-        <FaInstagram style={{padding: '0 10px', color:'#6E7DAB'}}/>
+        <FaInstagram className="footerIcon"/>
     </a>
     <a href="https://twitter.com/COVIDNewsByMIB?t=w_-4xmGu_W6nz4wC3_5DXw&s=08" className="icon">
-    <FaTwitter style={{padding: '0 10px', color:'#6E7DAB'}}/>
+    <FaTwitter className="footerIcon"/>
 </a>
     </div>
     <div className="navFooter">

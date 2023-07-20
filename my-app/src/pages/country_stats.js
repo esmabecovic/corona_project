@@ -4,6 +4,7 @@ import axios from "axios";
 import CountrySelect from "./countriesStats";
 import MaterialUIPickers from "../Components/pickDate/pickDate";
 import StateCard from "./StateCard";
+import './country_stats.css'
 
 //get Date
 const justDay =
@@ -107,9 +108,14 @@ function CountryStats() {
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        height:'110vh',
+        marginTop:'50px',
+        position: 'relative',
+        marginBottom:'-130px'
+
       }}
     >
-      <div className="flex justify-center gap-2">
+      <div className="countryInput">
         <CountrySelect
           countryNameFunc={(nameOfState, imgOfState) =>
             setCountryName((prev) => {
@@ -137,7 +143,7 @@ function CountryStats() {
           }}
         />
       </div>
-      <div>
+      <div className="stateCard">
         <StateCard
           countryName={countryName?.name}
           countryImg={countryName?.imgUrl}
@@ -145,7 +151,7 @@ function CountryStats() {
           new_death={countryData?.new_death}
           new_recovered={countryData?.new_recovered}
           total_active={countryData?.total_active}
-        />
+          />
       </div>
     </div>
   );

@@ -27,3 +27,12 @@
 .icon:hover{
     color: #5762D5;
 }
+.footerIcon{
+    padding: 0 10px;
+    color: #6E7DAB;
+}
+.footerIcon:hover{
+    transform: scale(1.1);
+  color: #181F62;
+  transition: 0.2s;
+}

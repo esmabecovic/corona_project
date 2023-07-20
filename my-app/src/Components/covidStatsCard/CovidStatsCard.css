@@ -10,7 +10,7 @@ height: 20vh;
 .covid-kartica:hover {
     transform: scale(1.1);
     transition: 0.35s;
-    border: 1px solid rgb(239, 110, 110);
+    border: 1px solid rgb(245, 221, 221);
 
 }
 .allInfo{
@@ -24,24 +24,24 @@ height: 20vh;
 }
 .populationSpan{
     margin-left: 10px;
-    border: double lightgreen 3px;
+    border: double #09BC8A 3px;
     padding: 5px;
     border-radius: 7px;
-    color: lightgreen;
+    color: #09BC8A;
 }
 .newCasesSpan{
     margin-left: 10px;
-    border: double blue 3px;
+    border: double #4B57D2 3px;
     padding: 5px;
     border-radius: 7px;
-    color: blue;
+    color: #4B57D2;
 }
 .deathsSpan{
     margin-left: 10px;
-    border: double red 3px;
+    border: double #D73340 3px;
     padding: 5px;
     border-radius: 7px;
-    color: red;
+    color: #D73340;
 }
 .deathsSpanDiv{
     margin-left: 20px;

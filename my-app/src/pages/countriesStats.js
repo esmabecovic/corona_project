@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import './country_stats.css'
 
 export default function CountrySelect({ countryNameFunc }) {
   return (
@@ -13,6 +14,7 @@ export default function CountrySelect({ countryNameFunc }) {
       id="country-select-demo"
       sx={{
         width: 300,
+        marginRight:'10px'
       }}
       options={countries}
       autoHighlight
@@ -25,7 +27,7 @@ export default function CountrySelect({ countryNameFunc }) {
           }}
           {...props}
         >
-          <img
+          <img className="flag"
             loading="lazy"
             width="20"
             src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
